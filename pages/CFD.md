@@ -1,0 +1,7 @@
+- 一本介绍OpenFoam 机理的文章 **underlying mathematics** [005](bookxnotepro://opennote/?nb={d462ec64-a84d-4b1e-bd75-946e8e091f85}&book=7ee49bc17847c31cae95d64f60f4fd33&page=4&x=262&y=86&id=1)
+  - 所有的守恒公式都可以通过FVE推导出来(刚开始 **首先** 得到 [[质量守恒]] 与 [[动力守恒]] )
+  - 最后推导出来 [[能量方程]]
+  -
+-
+-
+-
