@@ -3,8 +3,8 @@
  ;; maybe your personal preferred format is Org but you'd
  ;; need to use Markdown for some projects.
  ;; :preferred-format ""
- 
- ;; Preferred workflow style. 
+
+ ;; Preferred workflow style.
  ;; Value is either ":now" for NOW/LATER style,
  ;; or ":todo" for TODO/DOING style.
  :preferred-workflow :now
@@ -19,8 +19,8 @@
  :hidden []
 
  ;; When creating the new journal page, the app will use your template content here.
- ;; Example for Markdown users: "## [[Work]]\n###\n## [[Family]]\n###\n
- ;; Example for Org mode users: "** [[Work]]\n***\n** [[Family]]\n***\n
+ ;; Example for Markdown users: "[[Work]]\n  -\n- [[Family]]\n  -\n"
+ ;; Example for Org mode users: "** [[Work]]\n***\n** [[Family]]\n***\n"
  :default-templates
  {:journals ""}
 
@@ -34,12 +34,12 @@
             :in $ ?start ?today
             :where
             [?h :block/marker ?marker]
+            [(contains? #{"NOW" "DOING"} ?marker)]
             [?h :block/page ?p]
-            [?p :page/journal? true]
-            [?p :page/journal-day ?d]
+            [?p :block/journal? true]
+            [?p :block/journal-day ?d]
             [(>= ?d ?start)]
-            [(<= ?d ?today)]
-            [(contains? #{"NOW" "DOING"} ?marker)]]
+            [(<= ?d ?today)]]
     :inputs [:14d :today]
     :result-transform (fn [result]
                         (sort-by (fn [h]
@@ -50,12 +50,12 @@
             :in $ ?start ?next
             :where
             [?h :block/marker ?marker]
+            [(contains? #{"NOW" "LATER" "TODO"} ?marker)]
             [?h :block/ref-pages ?p]
-            [?p :page/journal? true]
-            [?p :page/journal-day ?d]
+            [?p :block/journal? true]
+            [?p :block/journal-day ?d]
             [(> ?d ?start)]
-            [(< ?d ?next)]
-            [(contains? #{"NOW" "LATER" "TODO"} ?marker)]]
+            [(< ?d ?next)]]
     :inputs [:today :7d-after]
     :collapsed? false}]}
 
@@ -71,4 +71,5 @@
  ;; input "{{{poem red,blue}}}"
  ;; becomes
  ;; Rose is red, violet's blue. Life's ordered: Org assists you.
- :macros {}}
+ :macros {}
+ :markdown/version 2}

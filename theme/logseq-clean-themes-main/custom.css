@@ -11,13 +11,13 @@
 ***************************************************************/
 
 :root {
-    --ls-main-content-max-width: 1400px;
+    --ls-main-content-max-width: 900px;
     
     --ct-page-border-radius: 5px;
     
     --ct-font-family: 'Overpass', 'Asap', 'IBM Plex Sans', Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     --ct-line-height: 1.5;
-    --ct-text-size: 1.2em;
+    --ct-text-size: 1em;
     --ls-font-family: var(--ct-font-family);
     --ct-page-title-font-family: 'Asap','Overpass', 'IBM Plex Sans', Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     --ct-page-title-font-size: 36px;
